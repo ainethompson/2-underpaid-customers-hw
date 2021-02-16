@@ -24,6 +24,27 @@ customer6_name = "Ashley"
 customer6_melons = 3
 customer6_paid = 2.00
 
+
+def underpaid(filename):
+    data = open(filename)
+
+    for line in data:
+        tokens = line.rstrip().split('|')
+
+    customer_id = tokens[0]
+    customer_name = tokens[1]
+    customer_paid = tokens[3]
+    quantity = int(tokens[2])
+
+    customer_expected = quantity * melon_cost
+
+    if customer_expected != customer_paid:
+        print(f"{customer_name} paid ${customer_paid},", f"expected ${customer_expected}")
+
+
+
+underpaid("customer-orders.txt")
+
 customer1_expected = customer1_melons * melon_cost
 if customer1_expected != customer1_paid:
     print(f"{customer1_name} paid ${customer1_paid:.2f},",
